@@ -1,0 +1,100 @@
+/**** Structure globale ****/
+
+body {
+	font-family: "Trebuchet MS";
+}
+
+#entete {
+	height: 100px;
+}
+
+#global {
+	width: 920px;
+}
+
+#contenu {
+	min-height: 600px;
+	background: #f1f1f1;
+}
+
+
+
+/**** Eléments ****/
+
+h1 {
+	margin-bottom: 30px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: normal;
+	text-align: center;
+}
+
+
+
+/**** Formulaire d'inscription ****/
+
+#inscriptionForm .entry {
+	display: table-row;
+}
+
+#inscriptionForm .label, #inscriptionForm .input {
+	display: table-cell;
+	padding-bottom: 10px;
+}
+
+#inscriptionForm .label {
+	padding-top: 5px;
+	padding-right: 10px;
+	text-align: right;
+	vertical-align: top;
+}
+
+#inscriptionForm .entry.mandatory .label {
+	font-weight: bold;
+}
+
+input, textarea {
+	padding: 3px 5px;
+	border: 1px solid #b5b5b5;
+}
+
+input[type=checkbox] {
+	margin-bottom: 10px;
+}
+
+input[type=submit] {
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+#presentationCarRestants {
+	display: inline-block;
+}
+
+/* Gestion des erreurs et succès */
+#inscriptionForm .input .error {
+	border-color: red;
+}
+#inscriptionForm span.error {
+	color: red;
+}
+#inscriptionForm span.success {
+	color: green;
+}
+
+/* Champs liés */
+#notifEntry {
+	display: none;
+	margin-left: 20px;
+}
+
+/* Tooltips */
+.formTooltip {
+	font-style: italic;
+	color: #b18a13;
+}
+
+/* Dialog */
+#inscriptionErrorDialog, #inscriptionSaveDialog, #inscriptionSaveErrorDialog {
+	display: none;
+}
+

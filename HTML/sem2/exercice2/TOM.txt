@@ -1,0 +1,34 @@
+<table>
+	<caption></caption>
+
+	<col></col>
+
+	<colgroup></colgroup>
+
+		<tbody>
+			<tr>
+				<td></td>
+				<th></th>
+			</tr>
+		</tbody>
+
+		<tfoot>
+			<tr>
+				<td></td>
+				<th></th>
+			</tr>
+		</tfoot>
+
+
+		<thead>
+			<tr>
+				<td></td>
+				<th></th>
+			</tr>
+		</thead>
+
+			<tr>
+				<td></td>
+				<th></th>
+			</tr>
+</table>

@@ -1,0 +1,342 @@
+<html>	   
+    <head>
+    
+    
+
+            <style>
+					/***************** css  ***********************/
+	
+					/*gestion affichage de la page gite_presentation*/
+                    .gite {overflow:hidden;}
+                    
+                    .gite_left{float:left;width:55%;margin:20px;}
+                    
+                    .gite_right{float:left;width:40%;margin:10px;}
+                    
+                    .gite_titre{width:100%;}/*titre gîte*/
+                    
+                    .gite_nom {
+                        color:#71b172;
+                        font-size:2.5em;
+                    }
+                    .texte_gite {
+                        color:#473d3d;
+                    }
+                    
+                    
+                    .titre_calendrier {s
+                        color:#71b172;
+                        width:80%;
+                        margin:0 auto;	
+                    }
+                    
+                    .gite_boucle {
+                        color:black;
+                        width:80%;;
+                        margin:0 auto;
+                        
+                    }
+  
+                    
+                    .gite_lien {
+                        font-size:1.5em;
+                        margin-left:150px;
+                    }
+                    
+                    .gite_formulaire {
+                        width:80%;
+                        margin:0 auto;
+                    }
+                    
+                    .gite_formulaire label{
+                        display: block;		/*disposition des input en colonne*/
+                    }
+                    
+                    /* TABS */
+                    
+					.tabs {
+					  position: relative;   
+					  min-height: 200px; 
+					  height:550px;
+					  clear: both;
+					  margin: 20px 0;
+						}
+					.tab {
+					  float: left;
+						}
+					.tab label {
+					  background: #eee; 
+					  padding: 10px; 
+					  border: 1px solid #ccc; 
+					  margin-left: -1px; 
+					  position: relative;
+					  left: 1px; 
+						}
+					.tab [type=radio] {
+					  display: none;   
+						}
+					.content {
+					  position: absolute;
+					  top: 28px;
+					  left: 0;
+					  background: white;
+					  right: 0;
+					  bottom: 0;
+					  padding: 20px;
+					  border: 1px solid #ccc; 
+						}
+					[type=radio]:checked ~ label {
+					  background: white;
+					  border-bottom: 1px solid white;
+					  z-index: 2;
+						}
+					[type=radio]:checked ~ label ~ .content {
+					  z-index: 1;
+						}
+					/* slider css */
+					#slider_gite{
+						width: 500px;
+						height: 250px;
+						margin: 50px auto;
+						position: relative;
+						margin-bottom: 0px;
+						background: rgba(0,0,0,0.5);
+						overflow: hidden;
+					}
+		
+					#s1{
+					padding: 6px;
+					background: #FFFFFF;
+					position: absolute;
+					left: 50%;
+					bottom: 25px;
+					margin-left: -36px;
+					border-radius: 20px;
+					opacity: 0.3;
+					cursor: pointer;
+					z-index: 999;
+					}
+				
+					#s2{
+					padding: 6px;
+					background: #FFFFFF;
+					position: absolute;
+					left: 50%;
+					bottom: 25px;
+					margin-left: -12px;
+					border-radius: 20px;
+					opacity: 0.3;
+					cursor: pointer;
+					z-index: 999;
+					}
+				
+					#s3{
+					padding: 6px;
+					background: #FFFFFF;
+					position: absolute;
+					left: 50%;
+					bottom: 25px;
+					margin-left: 12px;
+					border-radius: 20px;
+					opacity: 0.3;
+					cursor: pointer;
+					z-index: 999;
+					}
+				
+					#s4{
+					padding: 6px;
+					background: #FFFFFF;
+					position: absolute;
+					left: 50%;
+					bottom: 25px;
+					margin-left: 36px;
+					border-radius: 20px;
+					opacity: 0.3;
+					cursor: pointer;
+					z-index: 999;
+					}
+				
+					#s1:hover, #s2:hover, #s3:hover, #s4:hover{ opacity: 1;}
+				
+					.inner-wrapper{
+					width: 500px;
+					height: 250px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					margin-bottom: 0px;
+					overflow: hidden;
+					}
+					.control{ display: none;}
+					
+					#Slide1:checked ~ .overflow-wrapper{ margin-left: 0%; }
+					#Slide2:checked ~ .overflow-wrapper{ margin-left: -100%; }
+					#Slide3:checked ~ .overflow-wrapper{ margin-left: -200%; }
+					#Slide4:checked ~ .overflow-wrapper{ margin-left: -300%; }
+					
+					#Slide1:checked + #s1 { opacity: 1; }
+					#Slide2:checked + #s2 { opacity: 1; }
+					#Slide3:checked + #s3 { opacity: 1; }
+					#Slide4:checked + #s4 { opacity: 1; }
+					
+					.overflow-wrapper{
+					width: 400%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					overflow-y: hidden;
+					z-index: 1;
+					-webkit-transition: all 0.3s ease-in-out;
+					-moz-transition: all 0.3s ease-in-out;
+					-o-transition: all 0.3s ease-in-out;
+					transition: all 0.3s ease-in-out;
+					}
+				
+					.slide img{
+						width: 25%;
+						float: left;
+						}
+       
+	
+				/***************** fin css ***********************/
+				</style>
+         </head>
+
+        <body>
+			<div class="gite"> 															<!--		englobe affichage titre_gîte et                      description/calendrier/liens autres gîtes-->
+				<div class="gite_left">
+
+						<div id="slider_gite">
+							
+							<div class="inner-wrapper">
+								<input checked type="radio" name="slide" class="control" id="Slide1"/>
+									<label for="Slide1" id="s1"></label>
+								<input type="radio" name="slide" class="control" id="Slide2"/>
+									<label for="Slide2" id="s2"></label>
+								<input type="radio" name="slide" class="control" id="Slide3"/>
+									<label for="Slide3" id="s3"></label>
+								<input type="radio" name="slide" class="control" id="Slide4"/>
+									<label for="Slide4" id="s4"></label>
+								<div class="overflow-wrapper">
+									<a class="slide" href=""><img src="http://i.imgur.com/hKju1EC.jpg"/></a> 
+									<a class="slide" href=""><img src="http://i.imgur.com/hKju1EC.jpg"/></a>
+									<a class="slide" href=""><img src="http://i.imgur.com/hKju1EC.jpg"/></a>
+									<a class="slide" href=""><img src="http://i.imgur.com/hKju1EC.jpg"/></a>
+								</div>
+							</div>
+						</div>
+
+					
+					<div class="tabs">
+        
+					   <div class="tab">
+						   <input type="radio" id="tab-1" name="tab-group-1" checked>
+						   <label for="tab-1">Tab One</label>
+						   
+						   <div class="content">
+							  	<div class="gite_titre">
+									<h1></h1>
+								</div>
+							   	<div class="description_gite">
+									<p></p>
+								</div>
+						   </div> 
+					   </div>
+						
+					   <div class="tab">
+						   <input type="radio" id="tab-2" name="tab-group-1">
+						   <label for="tab-2">Tab Two</label>
+						   
+						   <div class="content">
+							   <table>
+								   <caption>Tarifs du gîte</caption>
+								 
+								   <thead> <!-- En-tête du tableau -->
+									   <tr>
+										   <th>Saison</th>
+										   <th>Tarif</th>
+									   </tr>
+								   </thead>
+								 
+								   <tfoot> <!-- Pied de tableau -->
+									   <tr>
+										   
+										   <th>Saison</th>
+										   <th>Tarif</th>
+									   </tr>
+								   </tfoot>
+								 
+								   <tbody> <!-- Corps du tableau -->
+									   <tr>
+										   <td>Semaine(5jours)</td>
+										   <td>Semaine complète</td>
+										   <td>Week-end</td>
+									   </tr>
+									   <tr>
+										   <td>prix</td>
+										   <td>prix</td>
+										   <td>prix</td>
+									   </tr>
+									   <tr>
+										   <td>prix</td>
+										   <td>prix</td>
+										   <td>prix</td>
+									   </tr>
+								   </tbody>
+								</table>
+						   </div> 
+					   </div>
+						
+						<div class="tab">
+						   <input type="radio" id="tab-3" name="tab-group-1">
+						   <label for="tab-3">Promotion</label>
+						 
+						   <div class="content">
+							   <p>dynamique</p>
+						   </div> 
+					   </div>
+        
+					</div>
+
+				</div>
+			
+					
+			<div class="gite_right">	
+					<!--		affichage calendrier-->
+				<div class="gite_calendrier">
+					<div class="titre_calendrier"><h3>Le calendrier de réservation du gîte</h3></div>	
+					<div class="calendrier"><?php require('calendrier.php');?></div>		
+				</div>	
+					
+					<div class="gite_formulaire">
+						<form action="formulaire.php" method="post">		<!--		formulaire transfert des dates -> page réservation -->
+							
+							<fieldset>
+								<legend>Réservez en ligne</legend>
+		
+								<label for=nom>Date Arrivée</label>
+								<input type="date" name="date_debut">
+								
+								<label for=nom>Date Départ</label>
+								<input type="date" name="date_fin">
+							</fieldset>
+							
+							<fieldset>
+								<button type=submit>Envoyer !</button>
+							</fieldset>
+						</form>
+					</div>
+				
+					<div class="gite_boucle"> 
+						
+						<fieldset>
+								<legend>Nos autres gîtes</legend>
+								
+						</fieldset>
+
+				    </div>
+			</div>   	<!--gite left -->
+		</div> <!--class gite -->
+    </body>
+</html>

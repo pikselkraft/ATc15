@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+        <title>Formulaire HTML5 + Jquery</title>
+        <meta name="description" content="Poker4Ever est un site de poker en ligne rassemblant des milliers de joueurs. Rejoignez une communauté de passionnés et participez à de nombreux tournois !" />
+    	<meta name="keywords" content="poker,argent,jeu,ligne,gain" />
+    	<meta name="author" content="François Gagnetou" />
+    	<link rel="shortcut icon" href="favicon.png" type="image/png" />
+    	<link rel="stylesheet" href="css/base.css" type="text/css" />
+    	<link rel="stylesheet" href="css/modele03.css" type="text/css" />
+    	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" type="text/css" />
+    	<link rel="stylesheet" href="css/main.css" type="text/css" />
+    	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+		<script src="js/inscription.js"></script>
+    </head>
+    <body>
+        <div id="global">
+			<div id="entete"></div>
+			<div id="navigation"></div>
+			<div id="contenu">
+				<h1>Inscription</h1>
+				<form name="inscription" id="inscriptionForm" method="post" enctype="multipart/form-data" action="inscriptionVal.php" onsubmit="return verifData();">
+		        	<div class="entry mandatory">
+		        		<div class="label"><label for="pseudo">Pseudo :</label></div>
+		        		<div class="input">
+		        			<input type="text" name="pseudo" id="pseudo" pattern="[a-z0-9_\-.]{3,14}" title="Entre 3 et 14 caractères alphanumériques plus les symboles -,_ et ." /><br />
+		        			<input type="button" value="Disponibilité" onclick="dispoPseudo();"/> <span id="dispoResu"></span>
+		        		</div>
+		        	</div>
+		        	<div class="entry mandatory">
+		        		<div class="label"><label for="password">Mot de passe :</label></div>
+		        		<div class="input"><input type="password" name="password" id="password" title="Entre 6 et 20 caractères" /></div>
+		        	</div>
+		        	<div class="entry mandatory">
+		        		<div class="label"><label for="passwordConfirm">Confirmation du mot de passe :</label></div>
+		        		<div class="input"><input type="password" name="passwordConfirm" id="passwordConfirm" title="Retapez votre mot de passe" /></div>
+		        	</div>
+		        	<div class="entry mandatory">
+		        		<div class="label"><label for="email">E-mail :</label></div>
+		        		<div class="input"><input type="email" name="email" id="email" title="Entrez un e-mail valide car une confirmation d'inscription vous y sera envoyée" /></div>
+		        	</div>
+		        	<div class="entry">
+		        		<div class="label"><label for="sexe">Sexe :</label></div>
+		        		<div class="input">
+		        			<select name="sexe" id="sexe">
+				        		<option value="default">-- Choix --</option>
+				        		<option value="m">Masculin</option>
+				        		<option value="f">Féminin</option>
+		        			</select>
+		        		</div>
+		        	</div>
+		        	<div class="entry">
+		        		<div class="label"><label for="naissance">Date de naissance :</label></div>
+		        		<div class="input"><input type="text" name="naissance" id="naissance" /></div>
+		        	</div>
+		        	<div class="entry">
+		        		<div class="label"><label for="presentation">Présentation :</label></div>
+		        		<div class="input">
+		        			<textarea name="presentation" id="presentation" rows="5" cols="30" onkeyup="updateCarateresRestants();" onfocus="updateCarateresRestants();"></textarea><br />
+		        			<span id="presentationCarRestants"></span>
+		        		</div>
+		        	</div>
+		        	<div class="entry">
+		        		<div class="label"><label>Niveau :</label></div>
+		        		<div class="input">
+		        			<input type="radio" name="niveau" id="niveauD" value="d" checked="checked" /><label for="niveauD">Débutant</label>
+				        	<input type="radio" name="niveau" id="niveauC" value="c" /><label for="niveauC">Confirmé</label>
+				        	<input type="radio" name="niveau" id="niveauP" value="p" /><label for="niveauP">Professionnel</label>
+		        		</div>
+		        	</div>
+		        	<div class="entry">
+		        		<div class="label"><label for="avatar">Avatar :</label></div>
+		        		<div class="input"><input type="file" name="avatar" id="avatar" accept="image/png,image/jpeg,image/jpg" /></div>
+		        	</div>
+		        	<div class="entryCB">
+		        		<input type="checkbox" name="newsletter" id="newsletter" /> <label for="newsletter">Je désire recevoir la newsletter</label>
+		        	</div>
+		        	<div class="entryCB">
+		        		<input type="checkbox" name="mailNotif" id="mailNotif" /> <label for="mailNotif">Je désire recevoir des notifications par mail</label>
+		        	</div>
+		        	<div class="entryCB" id="notifEntry">
+		        		<input type="checkbox" name="mailNotifTournoi" id="mailNotifTournoi" /> <label for="mailNotifTournoi">Pour les nouveaux tutoriels</label><br />
+		        		<input type="checkbox" name="mailNotifResu" id="mailNotifResu" /> <label for="mailNotifResu">Pour les actualités</label>
+		        	</div>
+		        	<div class="entry">
+		        		<input type="submit" value="Envoyer" />
+		        		<input type="button" value="Continuer mon inscription plus tard" onclick="saveInscription();" />
+		        	</div>
+		        </form>
+			</div>
+			<div id="pied"></div>
+		</div>
+		<div id="inscriptionErrorDialog" title="Erreurs dans les données">
+			Le formulaire comporte une ou plusieurs erreurs. Veuillez les corriger afin que
+			l'inscription puisse réussir.
+		</div>
+		<div id="inscriptionSaveDialog" title="Données sauvegardées">
+			Vos données ont été enregistrées, vous pourrez continuer votre inscription plus tard
+			(le même navigateur devra être utilisé).
+		</div>
+		<div id="inscriptionSaveErrorDialog" title="Erreur de sauvegarde">
+			Désolé, votre navigateur ne permet pas de sauvegarder vos données d'inscription.
+		</div>
+    </body>
+</html>

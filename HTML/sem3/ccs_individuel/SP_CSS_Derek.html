@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+    
+        <meta charset="utf-8" />
+        <title>Css Diagramme et Tabs</title>
+
+            <style> 
+
+                body{
+                    background-color:#37302D;   /*affichage du fond, couleur, taille, couleurs des textes*/
+                    color:white;
+                    width:100%;
+                    height:100%;
+                }
+                /******************Graphique***********************/
+                #content {                       /*affichage du contour du diagramme*/
+                    margin:0 auto;
+                    width:80%;
+                    background-color:#898989;
+                    -webkit-border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    border-radius: 20px;
+                    border-bottom:5px solid #fff;
+                }
+                    
+                h1 {text-align:center;}         /* alignement du titre dans le conteneur*/
+                    
+                dl {                            /*largeur du conteneur du diagramme et placement au centre*/
+                    margin:1em auto;
+                    padding:0 0 15px 0;
+                    width:500px;
+                    height:auto;
+                }
+                    
+                dt {                            /*Placement du titre du diagramme et style*/
+                    text-align:left;
+                    font-size:1.5em;
+                    width:100%;
+                    border-bottom:4px solid #fff;   /*Placement d'une bordure inférieur*/ 
+                }
+                    
+                dd {                            /*Gestion de l'avancement du diagramme*/
+                    margin:0;                       /*Marge 0 par rapport à l'élément dl*/ 
+                    display:block;                  /*Disposition en block, dans ce cas utilsie pour l'imbrication d'éléments*/ 
+                    width:500px;                    /*Largeur diagramme*/ 
+                    height:2em;                     /*Hauteur diagramme*/ 
+                    background:#2F74D0;             /*Couleur de l'avancement du diagramme*/ 
+                    border-bottom:1px solid #fff;
+                }
+                    
+                dd b {                          /*Gestion de la partie inférieur de l'avancement du diagramme*/
+                    float:right;                    /* L'élément flotte à doite de dd*/
+                    display:block;                  /*Disposition en block, permet d'imbriquer l'élément 'dd b' dans 'dd'*/ 
+                    margin-left:auto;               /*Marge 0 par rapport à l'élément dl*/
+                    background:#CEDEF4;             /*Couleur de la partie inférieur de l'avancement du diagramme*/ 
+                    height:2em;                     /*Hauteur diagramme correspondant à dd*/ 
+                    line-height:2em;                /*Centrage vertical du texte*/
+                    text-align:right;               /*Alignement à droite du texte*/
+                    color:black;                    /*couleur texte*/
+                }
+                    
+                /* 
+                
+                'dd b' est mis en flottante à droite de 'dd', l'élément dd est décalé par le 'margin-left: auto' de 'dd b', ce qui donne l'effet de diagramme par la superposition de deux couleurs de background.
+                Le display block sert à placer 'dd b' dans 'dd' ce qui permet d'utiliser un float right qui décale 'dd'
+
+                */
+            
+                
+                dd.html b {width:25%;} /* gestion de l'avancement du diagramme, différence par rapport à 100% */
+                dd.css b {width:30%;}
+                dd.js b {width:60%;}
+                dd.php b {width:50%;}
+                dd.java b {width:80%;}
+                dd.process b {width:80%;}
+                
+                /****************************Tabs***********************/
+                
+                #content2 { /*fond des onglets positionnement et design*/
+                    margin:0 auto;
+                    width:80%;
+                    background-color:#898989;
+                    -webkit-border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    border-radius: 20px;
+                    border-bottom:5px solid #fff;
+                }
+                
+                .tabs { /* gestion du positinnement de l'élément*/
+                  position: relative;
+                  left:10%;
+                  width:80%;
+                  min-height: 200px; 
+                  clear: both;
+                  margin: 25px 0;
+                }
+                .tab {
+                  float: left; /*position des tabs l'une à côté de l'autre*/
+                }
+                .tab label {
+                  background: #eee; 
+                  padding: 10px; 
+                  border: 1px solid #ccc; 
+                  margin-left: -1px; 
+                  position: relative;
+                  left: 1px; 
+                  color: #898989;
+                }
+                .tab [type=radio] { /*enlève l'affichage des puces d'une liste*/
+                  display: none;   
+                }
+                .content_tab {
+                  position: absolute;
+                  top: 28px;
+                  left: 0;
+                  background: white;
+                  color:#898989;
+                  right: 0;  /*le positionnement est nécessaire pour permettre la superposition ds éléments*/
+                  bottom: 0;
+                  padding: 20px;
+                  border: 1px solid #ccc; 
+                }
+                
+                /* gestion de l'affichage du contenu correspondant*/
+                
+                [type=radio]:checked ~ label {  /* selection label si selectionné on applique la couleur de fond, la bordure et l'index*/
+                  background: white;
+                  border-bottom: 1px solid white;
+                  z-index: 2; /* label selectionné en index 2 donc au premier plan*/
+                }
+                [type=radio]:checked ~ label ~ .content_tab {
+                  z-index: 1; /* quand le label est sélectionné, le contenu (content_tab) passe à l'index 1 (plan en dessous des label, au dessus des                   autres content_tab), ce qui donne l'effet de passage d'un onglet à l'autre. Un élément sans spécification d'empilement à un z-index                        
+                    équivalent à 0 */
+                }
+                
+                /**************************Animation css************************/
+                #content3{ 
+                    margin:0 auto;
+                    width:80%;
+                    background-color:#898989;
+                    -webkit-border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    border-radius: 20px;
+                    border-bottom:5px solid #fff;
+                    }
+                
+                 a { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: white;}
+
+                .social { list-style:none; padding:75px;} /*enlève puce des listes */ 
+                .social li { display:inline; float:left; margin: 0 40px 0 0; } /* place les élément en flottant*/
+                .social li a { display:block; width:64px; height:64px; position:relative; } /* position et taille */ 
+                .social li a strong { position: absolute; left: 0px; top: 10px;}
+                
+                li.tw { background:url("img/tw.png") #898989; } /* image du réseau social*/
+                li.gg { background:url("img/g.png") #898989;                  }
+                
+                .social:hover li { opacity:0.3; } /* change l'opacité des autres éléments au survol d'un élément*/
+                .social li { transition-property: opacity; transition-duration: 500ms; } /* mise en place d'une transition diminution de l'opacité                      pour l'image*/
+                .social li a strong { opacity:0; transition-property: opacity, top; transition-duration: 250ms;} /* selection de l'élément strong au                    survol, transition de l'opacité du texte*/
+                .social li:hover { opacity:1; } /* élément survolé à une opacité de 1, sans transparence*/ 
+                
+                .social li:hover a strong { opacity:1; top:-23px; } /* opacité du lien au survol, est déplacement vers le haut pour être visible*/
+                .text_social{font-size:2em;font-weight:400;font-style:blod;}
+                /* l'animation permet au survol de diminuer l'opacité des éléments non survolés*/
+                
+                /* note: une détection de navigateur avec js serait nécessaire pour un design alternatif sous des versions antérieur à IE8*/
+
+            </style>
+					
+    </head>
+
+    <body>
+
+        <div id="content">
+
+            <h1>Niveau de programmation</h1>
+                
+                <dl>
+                    <dt>Compétences</dt>
+                    <dd class="html">
+                        <b>Html = 75% </b>
+                    </dd>
+                    <dd class="css">
+                        <b>Css = 70% </b>
+                    </dd>
+                    <dd class="js">
+                        <b>Javascript = 40% </b>
+                    </dd>
+                    <dd class="php">
+                        <b>Php = 50% </b>
+                    </dd>
+                    <dd class="java">
+                        <b>Java = 20% </b>
+                    </dd>
+                    <dd class="process">
+                        <b>Processing = 20% </b>
+                    </dd>
+                </dl>
+        </div>
+            
+        <div id="content2">
+            <div class="tabs">
+        
+               <div class="tab">
+                   <input type="radio" id="tab-1" name="tab-group-1" checked>
+                   <label for="tab-1">Formation</label>
+                   
+                   <div class="content_tab">
+                       <ul>
+                        <li>2011/2013 DUT Service et Réseaux de Communication à l’IUT d'HAGUENAU</li>
+                        <li>2010/2011: Faculté des sciences de la vie, Licence en science du vivant à STRASBOURG (non achevé)</li>
+                        <li>Baccalauréat Scientifique, spécialité svt, mention bien, Lycée Freppel à OBERNAI</li>
+                       </ul>
+                   </div> 
+                   
+               </div>
+                
+               <div class="tab">
+                   <input type="radio" id="tab-2" name="tab-group-1">
+                   <label for="tab-2">Expérience</label>
+                   
+                   <div class="content_tab">
+                       
+                       <ul>
+                        <li>2013 : Assistant en Communication, Life is a game™ </li>
+                        <li>2013 : Auto-entrepreneur en graphisme et intégration web</li>
+                        <li>2009-2012 : Emplois saisonniers</li>
+                       </ul>
+                      
+                   </div> 
+               </div>
+            
+                <div class="tab">
+                   <input type="radio" id="tab-3" name="tab-group-1">
+                   <label for="tab-3">Autres</label>
+                 
+                   <div class="content_tab">
+                        <ul>
+                            <li>Sport: course, skateboard</li>
+                            <li>Lecture, cinéma</li>
+                            <li>Permis B</li>
+                       </ul>
+                   </div> 
+               </div>
+            </div>
+        </div> 
+        <div id="content3">
+          <ul class="social"> 
+            <li class="tw">
+              <a href="https://twitter.com/derek_Salmon_fr" target="_blank">
+                <strong>Twitter</strong></a></li>
+            <li class="gg"> 
+              <a href="https://plus.google.com/+derekSALMON/posts" target="_blank">
+                <strong>Google</strong></a></li>
+            <li class="text_social">Suivez-moi sur les réseaux sociaux </li>
+            </ul>
+        </div>
+		
+    </body>
+    
+</html>

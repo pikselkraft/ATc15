@@ -1,0 +1,9 @@
+<div id="zen-preamble" class="preamble" role="article">
+    <h3>The Road to Enlightenment</h3>
+        <p>
+        Littering a dark and dreary road lay the past relics of browser-specific tags, incompatible
+        <abbr title="Document Object Model">DOM</abbr>
+        s, broken
+        <abbr title="Cascading Style Sheets">CSS</abbr>
+        support, and abandoned browsers.
+        </p>

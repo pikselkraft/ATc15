@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"> 
+<head> 
+ <meta charset="utf-8" /> 
+ 
+<title>Format vidéos JS</title> 
+<meta name="keywords" content="" /> 
+<meta name="description" content="" /> 
+    
+
+   <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/c/video.js"></script>  
+    <!-- CDN version -->
+    
+      
+<script>
+  videojs.options.flash.swf = "videos/minions2.swf"
+</script>
+
+
+ 
+<!--<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" /> -->
+<meta name="viewport" content="width=device-width" /> 
+ 
+
+<style type="text/css"> 
+.center{
+text-align:center;
+}
+</style> 
+ 
+</head> 
+<body> 
+ 
+    <div id="menu">
+            <ul>
+                     <li> <a href="index.php">Accueil</a></li>
+                    <li> <a href="indexHTML.html">Video HTML</a></li>
+                    <li><a href="indexJS.html">Video JS</a></li>
+                    <li><a href="indexFLV.html">Video Flash</a></li> 
+                    <li><a href="formulaireHTML5.html">Formulaire</a></li>
+            </ul>
+        
+        </div>
+    
+    
+          <video id="example_video_1" class="video-js vjs-default-skin"  
+              controls preload="auto" width="640" height="264"  
+              poster="videos/minions2.mp4"  
+              data-setup='{"example_option":true}'>  
+             <source src="videos/minions2.mp4" type='video/mp4' />  
+             <source src="videos/minions2.webmhd" type='video/webm' />  
+             <source src="videos/minions2.oggtheora" type='video/ogg' />  
+        </video>
+    
+<!--    *******************************    
+Fonction similaire à la balise html5 (propose plusieurs format de vidéos pour être compatible aux différents navigateurs), en cas d'incompatibilité on utilise un format FLV s'assurer avec des versions de navigateurs anciennes (principalement IE)
+            **************************************
+-->
+
+
+</body> 
+</html> 
+

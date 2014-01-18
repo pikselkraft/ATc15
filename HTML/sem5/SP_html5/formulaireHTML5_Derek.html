@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8" />
+	<title>Demo HTML5 de formulaire complet</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+</head>
+<body>
+<h1>Démo HTML5 de formulaire complet</h1>
+
+    
+ 
+<form  name="form" id="Form" method="post" action="#" >
+
+ <fieldset>
+ 
+      <label for="range">Slider</label>
+      <input type="range" name="range"  value="1" max="12" min="1" step="1">
+    
+      <label for="text">Champ de texte avec placeholder</label>
+      <input type="text" name="text" id="text" placeholder="texte en html" required>
+     
+      <label for="url">Champ d'Url</label>
+      <input type="url" value="http://" name="website" required>
+     
+      <label for="email">Champ Email</label>
+      <input type="email" id="email" name="email" required>
+     
+      <label for="email">Téléphone</label>
+     <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" required>
+ 
+      <label for="numeric">Format numerique</label>
+      <input type="number" name="numeric" id="numeric" required>
+     
+      <label for="numeric">Format numerique - min et max</label>
+      <input type="number" step="4" value="0" min="0" max="64" required>
+     
+      <label for="date">Format date</label>
+      <input type="date" name="date" id="date" required>
+     
+      <label for="search">Recherche</label>
+      <input type="search" placeholder="Entrez un mot-clef" name="search">
+
+
+      <label for=nb_enfant>checkbox option</label>
+      <input type="checkbox" name="option[]" value="A" />Wifi
+      <input type="checkbox" name="option[]" value="B" />TV
+      <input type="checkbox" name="option[]" value="C" />Lit double
+      <input type="checkbox" name="option[]" value="D" />frigo bar
+
+      <label for=nb_enfant>radio</label>
+      <input type="radio" name="sex" value="male">Male
+      <input type="radio" name="sex" value="female">Female
+     
+     
+     <label for="choix_bieres">Indiquez votre bière préférée :</label>
+        <input list="bieres" type="text" id="choix_bieres">
+        <datalist id="bieres">
+          <option value="Meteor">
+          <option value="Pils">
+          <option value="Kronenbourg">
+          <option value="Grimbergen">
+        </datalist>
+     <br>
+        <br>Select1 : <INPUT type=radio name="select" value="oui">
+	    Select2 : <INPUT type=radio name="select" value="non"> 
+     
+      <label for="color-picker">Choix de la couleur</label>
+      <input type="color" name="color-picker" id="color-picker" required>
+     
+      <button type="submit" class="boutonSubmit" role="button" aria-disabled="false" required>
+        Soumettre le formulaire
+      </button>
+ 
+ </fieldset>
+</form>
+ 
+<footer>
+  <p>Derek Salmon</p>
+</footer>
+ 
+</body>
+</html>

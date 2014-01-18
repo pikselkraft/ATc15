@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"> 
+<head> 
+ <meta charset="utf-8" /> 
+ 
+<title>Format vidéos HTML5</title> 
+<meta name="keywords" content="" /> 
+<meta name="description" content="" /> 
+ 
+<!--<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" /> -->
+<meta name="viewport" content="width=device-width" /> 
+<script src="js/vendor/custom.modernizr.js"></script>
+<style type="text/css"> 
+.center{
+text-align:center;
+}
+</style> 
+ 
+</head> 
+<body> 
+ 
+<div id="global"> 
+ 
+    <div id="page"> 
+     
+        <div id="menu">
+            <ul>
+                     <li> <a href="index.php">Accueil</a></li>
+                    <li> <a href="indexHTML.html">Video HTML</a></li>
+                    <li><a href="indexJS.html">Video JS</a></li>
+                    <li><a href="indexFLV.html">Video Flash</a></li> 
+                    <li><a href="formulaireHTML5.html">Formulaire</a></li>
+            </ul>
+        
+        </div>
+        
+        <div id="content"> 
+ 
+            <div class="video"> 
+         
+         
+         
+                <h2>La balise <code>video</code> de HTML5</h2> 
+                <div class="center"> 
+                   <video width="400" height="222" controls="controls">    <!--     balise initialise la lecture de la vidéo, définition de la hauteur et largeur de la vidéo, la propriété controls ajoute les boutons de contrôle d'une vidéo -->
+            <!--           Propositions de plusieurs formats videos, pour s'adapter aux différents navigateurs.-->
+                        <source src="videos/minions2.mp4" type="video/mp4" /> 
+                        <source src="videos/minions2.webmhd" type="video/webm" /> 
+                        <source src="videos/minions2.oggtheora" type="video/ogg" /> 
+                     <p>Vous n'avez pas de navigateur moderne, ni flash d'installé sur Internet Explorer</p> 
+                   </video> 
+              </div>
+
+            </div> 
+    </div> <!-- content --> 
+ 
+<!--       ***************************
+Propose différents de formats de lecture pour être compatible avec les différents navigateurs, en cas de version ancienne l'utilisation de flash est obligatoire.
+            ***************************
+-->
+ 
+    </div> <!-- fin de page --> 
+</div> <!-- fin de global --> 
+    
+     <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+ 
+</body> 
+</html> 

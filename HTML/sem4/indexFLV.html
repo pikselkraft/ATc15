@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"> 
+<head> 
+ <meta charset="utf-8" /> 
+ 
+<title>Format vidéos FLASH</title> 
+<meta name="keywords" content="" /> 
+<meta name="description" content="" /> 
+ 
+  <script src="js/vendor/custom.modernizr.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" /> -->
+<meta name="viewport" content="width=device-width" /> 
+ 
+
+<style type="text/css"> 
+.center{
+text-align:center;
+}
+</style> 
+ 
+</head> 
+<body> 
+ 
+    <div id="menu">
+            <ul>
+                <li> <a href="index.php">Accueil</a></li>
+                <li> <a href="indexHTML.html">Video HTML</a></li>
+                <li><a href="indexJS.html">Video JS</a></li>
+                <li><a href="indexFLV.html">Video Flash</a></li> 
+                <li><a href="formulaireHTML5.html">Formulaire</a></li>
+            </ul>
+        
+    </div>
+    
+    
+    <div id="video">
+            	<h2>Video FLV</h2>
+			<hr />
+
+			<object type="application/x-shockwave-flash" data="videos/dewtube.swf" width="480" height="270">
+				<param name="allowFullScreen" value="true" />
+				<param name="movie" value="videos/dewtube.swf" />
+				<param name="flashvars" value="movie=minions2.flv&amp;width=480&amp;height=270" />
+			</object>
+
+    </div>
+
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+</body> 
+</html> 
